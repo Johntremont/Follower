@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from '../../Login';
+import './Label.css';
 
 
 const Label = ({ text }) => {
     return (
-        <div className='title-container'>
-            <label className='title-label'> {text} </label>
+        <div className='label-container'>
+            <label className='label-label'> {text} </label>
         </div>
     )
 };

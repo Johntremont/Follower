@@ -2,15 +2,16 @@ import React from 'react';
 import './Imput.css';
 
 
-const Imput = () => {
+const Imput = ({ attribute, handleChange, param }) => {
     return (
         <div>
             <input 
-            id=''
-            name=''
-            placeholder='ingrese su usuario'
-            onChange=''
-            className=''
+            id={attribute.id}
+            name={attribute.name}
+            placeholder={attribute.placeholder}
+            type={attribute.type}
+            onChange={ (e) => handleChange(e.target.name, e.target.value) }
+            className='regular-style'
             />
         </div>
     )
