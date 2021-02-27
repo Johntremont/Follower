@@ -9,15 +9,16 @@ import Imput from './components/Imput/Imput';
 const Login = () => {
 
 	const [ user, setUser ] = useState('');
-
+	const [ password, setPassword ] = useState('');
 
 	function handleChange(name, value) {
 		if(name === 'usuario') {
 			setUser(value)
+		} else {
+			setPassword(value)
 		}
 	}
 
-	console.log('usuario:', user)
 
 	return (
 		<div className='login-container'>
@@ -33,7 +34,16 @@ const Login = () => {
 			handleChange={handleChange}
 			/>
 			<Label text='Contraseña'/>
-			{/*<Imput />*/}
+			<Imput 
+			attribute={{
+				id: 'Contraseña',
+				name: 'Contraseña',
+				type: 'password',
+				placeholder: 'Ingrese su Contraseña'
+			}}
+			handleChange={handleChange}
+			/>
+			<Label text='Contraseña'/>
 				
 		</div>
 	)
