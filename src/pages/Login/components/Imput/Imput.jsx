@@ -4,14 +4,14 @@ import './Imput.css';
 
 const Imput = ({ attribute, handleChange, param }) => {
     return (
-        <div>
+        <div className='imput-container'>
             <input 
             id={attribute.id}
             name={attribute.name}
             placeholder={attribute.placeholder}
             type={attribute.type}
             onChange={ (e) => handleChange(e.target.name, e.target.value) }
-            className='regular-style'
+            className={ param ? 'imput-error' : 'regular-style'}
             />
         </div>
     )

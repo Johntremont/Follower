@@ -10,15 +10,27 @@ const Login = () => {
 
 	const [ user, setUser ] = useState('');
 	const [ password, setPassword ] = useState('');
+	const [ passwordError, setPasswordError ] = useState(false);
 
 	function handleChange(name, value) {
 		if(name === 'usuario') {
 			setUser(value)
 		} else {
-			setPassword(value)
+			if(value.length < 6) {
+				setPasswordError(true);
+			} else {
+				setPasswordError(false);
+				setPassword(value)
+			}
 		}
-	}
+	};
 
+	function handleSubmit() {
+		let account = { user, password }
+		if(account) {
+			console.log('account', account)
+		}
+	};
 
 	return (
 		<div className='login-container'>
@@ -42,8 +54,11 @@ const Login = () => {
 				placeholder: 'Ingrese su Contraseña'
 			}}
 			handleChange={handleChange}
+			param={passwordError}
 			/>
-			<Label text='Contraseña'/>
+			<button onClick={handleSubmit }>
+				Ingresar
+			</button>
 				
 		</div>
 	)
