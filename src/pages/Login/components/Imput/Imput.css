@@ -13,6 +13,7 @@
     color: salmon;
     font-size: 14px;
     outline: none;
+    text-align: left;
 }
 
 .regular-style::placeholder {
@@ -24,8 +25,8 @@
 
 .imput-error {
 
-    border: 1px solid crimson;
-    color: crimson;
+    border: 1px solid rgb(226, 133, 133);
+    color: rgb(116, 42, 42);
     background: rgb(235, 125, 125);
     height: 35px;
     width: 100%;
@@ -39,5 +40,6 @@
 }
 
 .imput-error::placeholder {
-    color: red;
+    color: rgb(216, 207, 207);
+    font-size: 14px;
 }

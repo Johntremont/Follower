@@ -11,6 +11,7 @@ const Login = () => {
 	const [ user, setUser ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ passwordError, setPasswordError ] = useState(false);
+	const [ isLogin, setIsLogin ] = useState(false);
 
 	function handleChange(name, value) {
 		if(name === 'usuario') {
@@ -25,10 +26,29 @@ const Login = () => {
 		}
 	};
 
+	function ifMatch(param) {
+		console.log('ifMatch')
+		if(param.user.length > 0 && param.password.length > 0) {
+			console.log(param)
+			if(param.user === "carolina" && param.password === '123456') {
+				const {  user, password } = param;
+				let ac = { user, password };
+				let account = JSON.stringify(ac);
+				localStorage.setItem('account', account);
+				setIsLogin(true);
+				console.log(localStorage);
+			} else {
+				setIsLogin(false);
+			}
+		}	else {
+			setIsLogin(false);
+		}
+	}
+
 	function handleSubmit() {
 		let account = { user, password }
 		if(account) {
-			console.log('account', account)
+			ifMatch(account);
 		}
 	};
 
@@ -56,6 +76,11 @@ const Login = () => {
 			handleChange={handleChange}
 			param={passwordError}
 			/>
+			{  passwordError &&
+				<label className='label-error'>
+					Contraseña invalida o imcompleta
+				</label>
+			}
 			<button onClick={handleSubmit }>
 				Ingresar
 			</button>
